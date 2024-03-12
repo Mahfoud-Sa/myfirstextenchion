@@ -15,6 +15,10 @@
     "commands": [{
       "command": "myfirstextenchion.create project strucher",
       "title": "create project strucher"
+    },
+    {
+      "command": "myfirstextenchion.create injection container file",
+      "title": "create injection container file"
     }]
   },
   "scripts": {

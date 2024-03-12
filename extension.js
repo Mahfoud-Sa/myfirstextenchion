@@ -46,7 +46,7 @@ function activate(context) {
 		createFolder('/lib/app/core/widgets')
 
 
-		//function
+		//features
 		createFolder('/lib/app/features')
 
 		
@@ -57,10 +57,34 @@ function activate(context) {
 
 	
 		vscode.window.showInformationMessage(state);
+		context.subscriptions.push(disposable);
+
 	});
-	let disposable_1 = vscode.commands.registerCommand('myfirstextenchion.create project injection container file', function () {
+	let injection_container_command = vscode.commands.registerCommand('myfirstextenchion.create injection container file', function () {
+		var state='';
+		try{
+			if(!fs.existsSync(__dirname+'/lib/injection_container.dart')){
+				fs.writeFile(__dirname+'/lib/injection_container.dart',"Future<void> InjectionContainer() async { \n \n //Write your injections variables here \n\n\n }",function(){});
+				state= 'Done >>>';
+			}
+			else{
+				state= 'Folder Exisit >>>';
+			}
+
+			
+		}catch(err){
+			state= err;
+		}
+		finally{
+			vscode.window.showInformationMessage(state);
+		
+			context.subscriptions.push(injection_container_command);
+
+		}
+
+		
 		//Injection_container file
-	//	fs.open(__dirname+'/app/injection_container.dart','w',function(){});
+		
 
 
 		
@@ -121,9 +145,8 @@ function activate(context) {
 	// });
 		
 
-		vscode.window.showInformationMessage('Done >>>');
+		
 	});
-	context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
