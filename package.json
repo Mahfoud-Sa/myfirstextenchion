@@ -19,6 +19,10 @@
     {
       "command": "myfirstextenchion.create injection container file",
       "title": "create injection container file"
+    },
+    {
+      "command": "myfirstextenchion.create feature folders",
+      "title": "create feature folders"
     }]
   },
   "scripts": {
